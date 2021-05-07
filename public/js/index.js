@@ -72,8 +72,8 @@ var custom = {
   projectId: "random-online-chatting-system",
   storageBucket: "random-online-chatting-system.appspot.com",
   messagingSenderId: "319079148407",
-  appId: "1:319079148407:web:a0ecb3d0a3dbec2a304f72",
-  measurementId: "G-R6QZ0RN1HG"
+  appId: "1:319079148407:web:1599ec8427eb6c5f304f72",
+  measurementId: "G-MXG0VJ2C0M"
 };
 // Initialize Firebase
 firebase.initializeApp(custom);
