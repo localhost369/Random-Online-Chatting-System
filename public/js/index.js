@@ -66,13 +66,14 @@ $(window).on('keydown', function(e) {
 
 // web app Firebase configuration
 var custom = {
-  apiKey: "AIzaSyD7Wa4tK_p44FPAUSbUlAZDrV7D0caZ0Ew",
-  authDomain: "fir-chat-app-boilerplate.firebaseapp.com",
-  databaseURL: "https://fir-chat-app-boilerplate-default-rtdb.firebaseio.com",
-  projectId: "fir-chat-app-boilerplate",
-  storageBucket: "fir-chat-app-boilerplate.appspot.com",
-  messagingSenderId: "297591293023",
-  appId: "1:297591293023:web:63c02c837b488d8b9c07ea"
+  apiKey: "AIzaSyB2h6bh6pRdyL31FKB8d_ezZczg-8gM-bY",
+  authDomain: "random-online-chatting-system.firebaseapp.com",
+  databaseURL: "https://random-online-chatting-system-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "random-online-chatting-system",
+  storageBucket: "random-online-chatting-system.appspot.com",
+  messagingSenderId: "319079148407",
+  appId: "1:319079148407:web:a0ecb3d0a3dbec2a304f72",
+  measurementId: "G-R6QZ0RN1HG"
 };
 // Initialize Firebase
 firebase.initializeApp(custom);
