@@ -65,18 +65,18 @@ $(window).on('keydown', function(e) {
 
 
 // web app Firebase configuration
-var custom = {
-  apiKey: "AIzaSyB2h6bh6pRdyL31FKB8d_ezZczg-8gM-bY",
-  authDomain: "random-online-chatting-system.firebaseapp.com",
-  databaseURL: "https://random-online-chatting-system-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "random-online-chatting-system",
-  storageBucket: "random-online-chatting-system.appspot.com",
-  messagingSenderId: "319079148407",
-  appId: "1:319079148407:web:1599ec8427eb6c5f304f72",
-  measurementId: "G-MXG0VJ2C0M"
-};
+// var custom = {
+//   apiKey: "AIzaSyB2h6bh6pRdyL31FKB8d_ezZczg-8gM-bY",
+//   authDomain: "random-online-chatting-system.firebaseapp.com",
+//   databaseURL: "https://random-online-chatting-system-default-rtdb.europe-west1.firebasedatabase.app",
+//   projectId: "random-online-chatting-system",
+//   storageBucket: "random-online-chatting-system.appspot.com",
+//   messagingSenderId: "319079148407",
+//   appId: "1:319079148407:web:1599ec8427eb6c5f304f72",
+//   measurementId: "G-MXG0VJ2C0M"
+// };
 // Initialize Firebase
-firebase.initializeApp(custom);
+// firebase.initializeApp(custom);
 
 firebase.database().ref("messages").on("child_removed", function (snapshot) {
   document.getElementById("message-" + snapshot.key).innerHTML = "This message has been deleted";
