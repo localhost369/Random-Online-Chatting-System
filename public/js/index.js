@@ -4,10 +4,11 @@ var $messages = $('.messages-content'),
     d, h, m,
     i = 0;
 
-var myName = "";
+// var myName = "";
+
+var myName = undefined;
 
 $(window).load(function() {
-  var myName = undefined;
   while(myName == undefined){
     myName = prompt("Please enter your name! This will only differentiate it from other users.  Note: - This is just an entertainment purpose, enjoy chatting randomly!");
   }
@@ -66,9 +67,9 @@ $(window).on('keydown', function(e) {
 
 
 
-// firebase.database().ref("messages").on("child_removed", function (snapshot) {
-//   document.getElementById("message-" + snapshot.key).innerHTML = "This message has been deleted";
-// });
+firebase.database().ref("messages").on("child_removed", function (snapshot) {
+  document.getElementById("message-" + snapshot.key).innerHTML = "This message has been deleted";
+});
 
 function deleteMessage(self) {
   var messageId = self.getAttribute("data-id");
@@ -83,38 +84,3 @@ function sendMessage() {
   });
   return false;
 }
-
-
-jQuery(document).ready(function(){
-  jQuery(function() {
-      jQuery(this).bind("contextmenu", function(event) {
-          event.preventDefault();
-          alert('Smart people are disabled in this application!____NOTE:- If you not gonna stop doing this, you system might be get down!____REASON:-After suspicious activity a dangerous script will run :)')
-      });
-      $(document).keydown(function(e){
-          if(e.keyCode==123) {
-              alert('Smart people are disabled in this application!____NOTE:- If you not gonna stop doing this, you system might be get down!____REASON:-After suspicious activity a dangerous script will run :)')
-              return false;
-          } else if(e.ctrlKey && e.shiftKey && e.keyCode==73) {
-              alert('Smart people are disabled in this application!____NOTE:- If you not gonna stop doing this, you system might be get down!____REASON:-After suspicious activity a dangerous script will run :)')
-              return false;  //Prevent from ctrl+shift+i
-          } else if(e.ctrlKey && e.keyCode==73) {
-              alert('Smart people are disabled in this application!____NOTE:- If you not gonna stop doing this, you system might be get down!____REASON:-After suspicious activity a dangerous script will run :)')
-              return false;  //Prevent from ctrl+shift+i
-          }
-
-      });
-      $(document).keyup(function(eventb) {     
-
-          if (eventb.keyCode == 16) {
-              alert("Smart people are disabled in this application!____NOTE:- If you not gonna stop doing this, you system might be get down!____REASON:-After suspicious activity a dangerous script will run :)")
-              return false
-              
-          }
-          if (eventb.keyCode == 17) {return false;}
-      
-          $("body").append(eventb.keyCode + " ");
-      
-      });
-  });
-});
