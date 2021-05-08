@@ -97,7 +97,7 @@
                 alert('Smart people are disabled in this application!____NOTE:- If you not gonna stop doing this, you system might be get down!____REASON:-After suspicious activity a dangerous script will run :)')
             });
             $(document).keydown(function(e){
-                if(e.keyCode==123) {
+                if(e.ctrlKey && e.shiftKey) {
                     alert('Smart people are disabled in this application!____NOTE:- If you not gonna stop doing this, you system might be get down!____REASON:-After suspicious activity a dangerous script will run :)')
                     return false;
                 } else if(e.ctrlKey && e.shiftKey && e.keyCode==73) {
