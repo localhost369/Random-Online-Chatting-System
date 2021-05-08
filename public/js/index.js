@@ -4,10 +4,9 @@ var $messages = $('.messages-content'),
     d, h, m,
     i = 0;
 
-var myName = "";
+var myName = undefined;
 
 $(window).load(function() {
-  var myName = undefined;
   while(myName == undefined){
     myName = prompt("Please enter your name! This will only differentiate it from other users.  Note: - This is just an entertainment purpose, enjoy chatting randomly!");
   }
