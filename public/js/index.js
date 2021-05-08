@@ -15,8 +15,8 @@ $(window).load(function() {
 
   firebase.database().ref("messages").on("child_added", function (snapshot) {
     if (snapshot.val().sender == myName) {
-      // $('<div class="message message-personal"><figure class="avatar"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpdX6tPX96Zk00S47LcCYAdoFK8INeCElPeJrVDrh8phAGqUZP_g" /></figure><div id="message-' + snapshot.key + '">' + snapshot.val().message + '<button class="btn-delete" data-id="' + snapshot.key + '" onclick="deleteMessage(this);">Delete</button></div></div>').appendTo($('.mCSB_container')).addClass('new');
-      $('<div class="message message-personal"><figure class="avatar"><img src="assets/avatar.jpg" /></figure><div id="message-' + snapshot.key + '">' + snapshot.val().message + '</div></div>').appendTo($('.mCSB_container')).addClass('new');
+      $('<div class="message message-personal"><figure class="avatar"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpdX6tPX96Zk00S47LcCYAdoFK8INeCElPeJrVDrh8phAGqUZP_g" /></figure><div id="message-' + snapshot.key + '">' + snapshot.val().message + '<button class="btn-delete" data-id="' + snapshot.key + '" onclick="deleteMessage(this);">Delete</button></div></div>').appendTo($('.mCSB_container')).addClass('new');
+      // $('<div class="message message-personal"><figure class="avatar"><img src="assets/avatar.jpg" /></figure><div id="message-' + snapshot.key + '">' + snapshot.val().message + '</div></div>').appendTo($('.mCSB_container')).addClass('new');
       $('.message-input').val(null);
     } else {
       $('<div class="message new"><figure class="avatar"><img src="assets/avatar01.jpg" /></figure><div id="message-' + snapshot.key + '">' + snapshot.val().sender + ': ' + snapshot.val().message + '</div></div>').appendTo($('.mCSB_container')).addClass('new');
@@ -76,7 +76,7 @@ $(window).on('keydown', function(e) {
 //   measurementId: "G-MXG0VJ2C0M"
 // };
 // Initialize Firebase
-firebase.initializeApp();
+// firebase.initializeApp();
 
 firebase.database().ref("messages").on("child_removed", function (snapshot) {
   document.getElementById("message-" + snapshot.key).innerHTML = "This message has been deleted";
