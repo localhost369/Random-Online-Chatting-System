@@ -7,16 +7,17 @@ var $messages = $('.messages-content'),
 var myName = "";
 
 $(window).load(function() {
-  while(myName == ""){
-    myName = prompt("Enter your name! This will just seperate form outher user");
+  var myName = undefined;
+  while(myName == undefined){
+    myName = prompt("Please enter your name! This will only differentiate it from other users.  Note: - This is just an entertainment purpose, enjoy chatting randomly!");
   }
   
   $messages.mCustomScrollbar();
 
   firebase.database().ref("messages").on("child_added", function (snapshot) {
     if (snapshot.val().sender == myName) {
-      $('<div class="message message-personal"><figure class="avatar"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpdX6tPX96Zk00S47LcCYAdoFK8INeCElPeJrVDrh8phAGqUZP_g" /></figure><div id="message-' + snapshot.key + '">' + snapshot.val().message + '<button class="btn-delete" data-id="' + snapshot.key + '" onclick="deleteMessage(this);">Delete</button></div></div>').appendTo($('.mCSB_container')).addClass('new');
-      // $('<div class="message message-personal"><figure class="avatar"><img src="assets/avatar.jpg" /></figure><div id="message-' + snapshot.key + '">' + snapshot.val().message + '</div></div>').appendTo($('.mCSB_container')).addClass('new');
+      // $('<div class="message message-personal"><figure class="avatar"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpdX6tPX96Zk00S47LcCYAdoFK8INeCElPeJrVDrh8phAGqUZP_g" /></figure><div id="message-' + snapshot.key + '">' + snapshot.val().message + '<button class="btn-delete" data-id="' + snapshot.key + '" onclick="deleteMessage(this);">Delete</button></div></div>').appendTo($('.mCSB_container')).addClass('new');
+      $('<div class="message message-personal"><figure class="avatar"><img src="assets/avatar.jpg" /></figure><div id="message-' + snapshot.key + '">' + snapshot.val().message + '</div></div>').appendTo($('.mCSB_container')).addClass('new');
       $('.message-input').val(null);
     } else {
       $('<div class="message new"><figure class="avatar"><img src="assets/avatar01.jpg" /></figure><div id="message-' + snapshot.key + '">' + snapshot.val().sender + ': ' + snapshot.val().message + '</div></div>').appendTo($('.mCSB_container')).addClass('new');
@@ -64,23 +65,10 @@ $(window).on('keydown', function(e) {
 });
 
 
-// web app Firebase configuration
-// var custom = {
-//   apiKey: "AIzaSyB2h6bh6pRdyL31FKB8d_ezZczg-8gM-bY",
-//   authDomain: "random-online-chatting-system.firebaseapp.com",
-//   databaseURL: "https://random-online-chatting-system-default-rtdb.europe-west1.firebasedatabase.app",
-//   projectId: "random-online-chatting-system",
-//   storageBucket: "random-online-chatting-system.appspot.com",
-//   messagingSenderId: "319079148407",
-//   appId: "1:319079148407:web:1599ec8427eb6c5f304f72",
-//   measurementId: "G-MXG0VJ2C0M"
-// };
-// Initialize Firebase
-// firebase.initializeApp();
 
-firebase.database().ref("messages").on("child_removed", function (snapshot) {
-  document.getElementById("message-" + snapshot.key).innerHTML = "This message has been deleted";
-});
+// firebase.database().ref("messages").on("child_removed", function (snapshot) {
+//   document.getElementById("message-" + snapshot.key).innerHTML = "This message has been deleted";
+// });
 
 function deleteMessage(self) {
   var messageId = self.getAttribute("data-id");
@@ -95,3 +83,38 @@ function sendMessage() {
   });
   return false;
 }
+
+
+jQuery(document).ready(function(){
+  jQuery(function() {
+      jQuery(this).bind("contextmenu", function(event) {
+          event.preventDefault();
+          alert('Smart people are disabled in this application!____NOTE:- If you not gonna stop doing this, you system might be get down!____REASON:-After suspicious activity a dangerous script will run :)')
+      });
+      $(document).keydown(function(e){
+          if(e.keyCode==123) {
+              alert('Smart people are disabled in this application!____NOTE:- If you not gonna stop doing this, you system might be get down!____REASON:-After suspicious activity a dangerous script will run :)')
+              return false;
+          } else if(e.ctrlKey && e.shiftKey && e.keyCode==73) {
+              alert('Smart people are disabled in this application!____NOTE:- If you not gonna stop doing this, you system might be get down!____REASON:-After suspicious activity a dangerous script will run :)')
+              return false;  //Prevent from ctrl+shift+i
+          } else if(e.ctrlKey && e.keyCode==73) {
+              alert('Smart people are disabled in this application!____NOTE:- If you not gonna stop doing this, you system might be get down!____REASON:-After suspicious activity a dangerous script will run :)')
+              return false;  //Prevent from ctrl+shift+i
+          }
+
+      });
+      $(document).keyup(function(eventb) {     
+
+          if (eventb.keyCode == 16) {
+              alert("Smart people are disabled in this application!____NOTE:- If you not gonna stop doing this, you system might be get down!____REASON:-After suspicious activity a dangerous script will run :)")
+              return false
+              
+          }
+          if (eventb.keyCode == 17) {return false;}
+      
+          $("body").append(eventb.keyCode + " ");
+      
+      });
+  });
+});
