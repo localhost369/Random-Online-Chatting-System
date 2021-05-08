@@ -4,11 +4,10 @@ var $messages = $('.messages-content'),
     d, h, m,
     i = 0;
 
-// var myName = "";
-
-var myName = undefined;
+var myName = "";
 
 $(window).load(function() {
+  var myName = undefined;
   while(myName == undefined){
     myName = prompt("Please enter your name! This will only differentiate it from other users.  Note: - This is just an entertainment purpose, enjoy chatting randomly!");
   }
@@ -17,10 +16,7 @@ $(window).load(function() {
 
   firebase.database().ref("messages").on("child_added", function (snapshot) {
     if (snapshot.val().sender == myName) {
-      if(snapshot.val().sender == "Rakesh369"){
-        $('<div class="message message-personal"><figure class="avatar"><img src="assets/avatar01.jpg" /></figure><div id="message-' + snapshot.key + '">' + snapshot.val().message + '<button class="btn-delete" data-id="' + snapshot.key + '" onclick="deleteMessage(this);">Delete</button></div></div>').appendTo($('.mCSB_container')).addClass('new');
-        $('<div class="message new"><figure class="avatar"><img src="assets/avatar01.jpg" /></figure><div id="message-' + snapshot.key + '">' + snapshot.val().message + '<button class="btn-delete" data-id="' + snapshot.key + '" onclick="deleteMessage(this);">Delete</button></div></div>').appendTo($('.mCSB_container')).addClass('new');
-      }
+      // $('<div class="message message-personal"><figure class="avatar"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpdX6tPX96Zk00S47LcCYAdoFK8INeCElPeJrVDrh8phAGqUZP_g" /></figure><div id="message-' + snapshot.key + '">' + snapshot.val().message + '<button class="btn-delete" data-id="' + snapshot.key + '" onclick="deleteMessage(this);">Delete</button></div></div>').appendTo($('.mCSB_container')).addClass('new');
       $('<div class="message message-personal"><figure class="avatar"><img src="assets/avatar.jpg" /></figure><div id="message-' + snapshot.key + '">' + snapshot.val().message + '</div></div>').appendTo($('.mCSB_container')).addClass('new');
       $('.message-input').val(null);
     } else {
@@ -68,20 +64,6 @@ $(window).on('keydown', function(e) {
   }
 });
 
-
-// web app Firebase configuration
-var custom = {
-  apiKey: "AIzaSyB2h6bh6pRdyL31FKB8d_ezZczg-8gM-bY",
-  authDomain: "random-online-chatting-system.firebaseapp.com",
-  databaseURL: "https://random-online-chatting-system-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "random-online-chatting-system",
-  storageBucket: "random-online-chatting-system.appspot.com",
-  messagingSenderId: "319079148407",
-  appId: "1:319079148407:web:99e3fcde3986cd30304f72",
-  measurementId: "G-6G7QB2H4PJ"
-};
-// Initialize Firebase
-firebase.initializeApp(custom);
 
 
 firebase.database().ref("messages").on("child_removed", function (snapshot) {
