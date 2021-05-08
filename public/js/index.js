@@ -7,6 +7,7 @@ var $messages = $('.messages-content'),
 var myName = undefined;
 
 $(window).load(function() {
+  
   while(myName == undefined){
     myName = prompt("Please enter your name! This will only differentiate it from other users.  Note: - This is just an entertainment purpose, enjoy chatting randomly!");
   }
@@ -65,9 +66,9 @@ $(window).on('keydown', function(e) {
 
 
 
-firebase.database().ref("messages").on("child_removed", function (snapshot) {
-  document.getElementById("message-" + snapshot.key).innerHTML = "This message has been deleted";
-});
+// firebase.database().ref("messages").on("child_removed", function (snapshot) {
+//   document.getElementById("message-" + snapshot.key).innerHTML = "This message has been deleted";
+// });
 
 function deleteMessage(self) {
   var messageId = self.getAttribute("data-id");
