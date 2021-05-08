@@ -76,7 +76,7 @@ $(window).on('keydown', function(e) {
 //   measurementId: "G-MXG0VJ2C0M"
 // };
 // Initialize Firebase
-// firebase.initializeApp(custom);
+firebase.initializeApp();
 
 firebase.database().ref("messages").on("child_removed", function (snapshot) {
   document.getElementById("message-" + snapshot.key).innerHTML = "This message has been deleted";
