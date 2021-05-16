@@ -1,7 +1,22 @@
 
-# Best-Flutter-UI-Templates
-completely free for everyone. Its build-in Flutter Dart.
+# Random Online Chatting with Firebase Real time database Basics
 
-### Some Screenshots
-![Image](Screenshot (673).png)
+
+[Link to Live Demo](https://random-online-chatting-system.web.app/)
+
+Star⭐ the repo if you like what you see😉.
+
+
+## ✨ Instructions
+* Create firebase project
+* Enable Real-time database and Hosting
+* Follow the command in windows cmd input-> firebase login
+* after successfull login into the firebase cli. cmd input -> firebase init
+* After selecting the exact project go to the folder and place only public folder into you project directory
+* After that deploy into firebase. cmd input -> firebase deploy
+* Now you'll ready to serve 🤓🤓
+
+
+## 📸 ScreenShots
+![Image](Screenshot.png)
 ![Image](random-chatting.png)
