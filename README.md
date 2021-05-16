@@ -18,5 +18,5 @@ Star⭐ the repo if you like what you see😉.
 
 
 ## 📸 ScreenShots
-![Image](Screenshot.png)
-![Image](random-chatting.png)
+![Image](Screenshot.jpg)
+![Image](random-chatting.jpg)
